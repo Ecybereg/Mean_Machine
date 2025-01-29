@@ -7,8 +7,11 @@ Mean Machine is a comprehensive DIY project that combines hardware, software, an
 **<<-- Key Features -->>**
 
 Hardware Setup:
-Beagle Bone Black: The project is built on the Beagle Bone Black, providing a robust foundation for various applications.
-ALFA Device: Utilizes a powerful ALFA device, a renowned wireless adapter, enhancing the project's capabilities.
+Beagle Bone Black
+The project is built on the Beagle Bone Black, providing a robust foundation for various applications.
+
+ALFA Device
+Utilizes a powerful ALFA device, a renowned wireless adapter, enhancing the project's capabilities.
 
 **Electrical Work and Wiring**
 
@@ -24,6 +27,12 @@ The project sends deauthentication packets, capturing the essential 4-way handsh
 Mean Machine focuses on security exploration, targeting the 4-way handshake as a crucial step in wireless security testing.
 
 **Entertainment Element - Games**
-Snake and More: Beyond security, Mean Machine offers a playful side with games like Snake, adding a touch of entertainment to the device.
+Snake and More
+Beyond security, Mean Machine offers a playful side with games like Snake, adding a touch of entertainment to the device.
+
 Mean Machine Persona
 The project is aptly named "Mean Machine," suggesting a powerful and multifaceted nature that goes beyond conventional DIY creations.
+
+** FOR EDUCATIONAL PURPOSES ONLY **
+
+TH
